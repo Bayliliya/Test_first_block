@@ -1,41 +1,50 @@
 ﻿// Данная программа из массива строк формирует новый массив, состоящий из строк длина которых меньше или равна 3 символам
 
+
 Console.WriteLine("Введите количество элементов массива");
 int n = Enter();
 
 string[] array = new string[n];
 
+//ввод пользователем элементов массива
 EnterArray();
 
-//функция для заполнения массива
-void EnterArray()
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.WriteLine($"Введите элемент массива подиндексом {i}");
-        array[i] = Console.ReadLine();
 
-    }
-}
-
-
-//распечатка
 Console.Write("[");
-Printarray(array);
+Printarray(array);  //вызов функции распечатки массива
 Console.Write("] -> ");
-int count = 0;
-for (int i = 0; i < array.Length; i++)
-{
-    if (array[i].Length <= 3) count += 1;
-}
 
-string[] arrayModify = FillModifyArray(array, count);
-//распечатка
+int count = CountElement(array, 3);  //вызов функции для подсчета элементоа в новом массиве
+
+string[] arrayModify = FillModifyArray(array, count); // вызов функции для заполнения массива
+
+
 Console.Write("[");
 Printarray(arrayModify);
 Console.Write("]");
 
-//функция заполнения нового массива
+
+
+// функция подсчета элементов массива
+int CountElement(string[] array, int num)
+
+{
+    int count = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= num) count += 1;
+    }
+
+    return count;
+
+}
+
+
+
+
+
+//функция заполнения модифицированного массива
 
 string[] FillModifyArray(string[] massiv, int number)
 {
@@ -53,6 +62,7 @@ string[] FillModifyArray(string[] massiv, int number)
     return res;
 
 }
+
 //функция распечатки массива
 void Printarray(string[] massiv)
 {
@@ -74,3 +84,13 @@ int Enter()
     return num;
 }
 
+//функция для заполнения массива с клавиатуры
+void EnterArray()
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine($"Введите элемент массива подиндексом {i}");
+        array[i] = Console.ReadLine();
+
+    }
+}
