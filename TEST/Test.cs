@@ -17,7 +17,6 @@ void EnterArray()
 
     }
 }
-//EnterArray(n);
 
 
 //распечатка
@@ -75,15 +74,3 @@ int Enter()
     return num;
 }
 
-// //функция для ввода массива
-// void EnterArray(int num, string massiv)
-// {
-
-//     for (int i = 0; i < num; i++)
-//     {
-//         Console.WriteLine($"Введите элемент массива подиндексом {i}");
-//         massiv[i] = Console.ReadLine();
-
-//     }
-
-// }
